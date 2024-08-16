@@ -1,12 +1,15 @@
 
 import React, { useState } from 'react';
 import './EditProfile.css';
+import {  useNavigate } from 'react-router-dom';
 
 const EditProfile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
+  const navigate = useNavigate(); 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle profile update logic here
@@ -14,6 +17,7 @@ const EditProfile = () => {
     toast.success("Profile updated Successfully", {
       position: "top-center",
   });
+    navigate("/Dashboard");
   };
 
   return (
