@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './EditProfile.css';
 import {  useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const EditProfile = () => {
   const [name, setName] = useState('');
@@ -21,6 +22,8 @@ const EditProfile = () => {
   };
 
   return (
+    <>
+     <Navbar />
     <div className="edit-profile">
       <h2>Edit Profile</h2>
       <form onSubmit={handleSubmit}>
@@ -51,6 +54,7 @@ const EditProfile = () => {
         <button type="submit">Save Changes</button>
       </form>
     </div>
+<>
   );
 };
 
