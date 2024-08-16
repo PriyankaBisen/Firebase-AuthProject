@@ -13,6 +13,13 @@ const SignUpForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        // Check if all fields are filled
+        if (!fname || !lname || !email || !password) {
+            toast.error("Please fill in all the fields", {
+                position: "top-center",
+            });
+            return;
+        }
         try{
  await createUserWithEmailAndPassword(auth,email,password)
  console.log("Account Created")
