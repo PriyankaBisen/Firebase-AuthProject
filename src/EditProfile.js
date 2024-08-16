@@ -11,6 +11,9 @@ const EditProfile = () => {
     e.preventDefault();
     // Handle profile update logic here
     console.log('Profile updated:', { name, email, password });
+    toast.success("Profile updated Successfully", {
+      position: "top-center",
+  });
   };
 
   return (
