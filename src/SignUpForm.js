@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import {auth} from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {toast} from 'react-toastify';
+import {  useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
     const[fname,setFname]=useState('');
     const[lname,setLname]=useState('');
+    
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,7 +26,7 @@ const SignUpForm = () => {
         try{
  await createUserWithEmailAndPassword(auth,email,password)
  console.log("Account Created")
- window.location.href="/Login";
+ navigate("/Login");
  toast.success("Registration Successfully",{
     position:"top-center" ,
  });
