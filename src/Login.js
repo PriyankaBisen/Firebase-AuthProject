@@ -11,6 +11,12 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (!email || !password) {
+            toast.error("Please fill in all the fields", {
+                position: "top-center",
+            });
+            return;
+        }
         try{
         await  signInWithEmailAndPassword(auth,email,password)
 console.log("Login Successfully")
