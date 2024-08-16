@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import {auth} from './firebase';
 import {signInWithEmailAndPassword } from 'firebase/auth';
 import {toast} from 'react-toastify';
+import {  useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
-
+    
+    const navigate = useNavigate(); 
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (!email || !password) {
@@ -20,7 +23,7 @@ const Login = () => {
         try{
         await  signInWithEmailAndPassword(auth,email,password)
 console.log("Login Successfully")
-window.location.href="/Dashboard";
+ navigate("/Dashboard");
 toast.success("Login Successfully",{
    position:"top-center" ,
 });
